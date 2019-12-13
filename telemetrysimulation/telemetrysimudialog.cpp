@@ -14,7 +14,7 @@ telemetrysimuDialog::telemetrysimuDialog(QWidget *parent)
 void telemetrysimuDialog::onmainTimeLoop()// ///////////////////////////////////////////////////////////
 {
     QString writeback = ui ->LatLon -> text();
-    connect(this,&telemetrysimuDialog::toMotnEmu,dlg,&telsimmotionDialog::toSecWindow); //
+    //connect(this,&telemetrysimuDialog::toMotnEmu,dlg,&telsimmotionDialog::toSecWindow); //
     emit toMotnEmu(writeback); // ////////////////////////
 }
 
@@ -28,5 +28,6 @@ telemetrysimuDialog::~telemetrysimuDialog()
 void telemetrysimuDialog::on_startMotion_clicked()
 {
     dlg = new telsimmotionDialog(this); // ///////////////
+    connect(this,&telemetrysimuDialog::toMotnEmu,dlg,&telsimmotionDialog::toSecWindow); //
     dlg->show(); // ////////////////////////////////
 }
